@@ -8,11 +8,10 @@ import Image from 'next/image';
 
 const Header = () => {
 	const dispatch = useDispatch();
-	const isMenuOpen = useSelector((state) => state.menu.isOpen);
 
 	return (
 		<div className="flex justify-between px-5 pt-8">
-			<div className="">
+			<div className="select-none">
 				<Image
 					src="/images/yarik_logo.png"
 					height="40"
@@ -21,7 +20,7 @@ const Header = () => {
 				/>
 			</div>
 			<motion.div
-				className="cursor-pointer"
+				className="cursor-pointer select-none"
 				whileTap={{ scale: 0.9 }}
 				onClick={() => dispatch(toggleMenu())}
 			>

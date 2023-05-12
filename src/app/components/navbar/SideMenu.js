@@ -6,14 +6,10 @@ import Image from 'next/image';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleMenu } from '@/store/slices/menuSlice';
-import useResponsiveImageHeight from '@/hooks/useResponsiveImageHeight';
 
 const SideMenu = () => {
 	const dispatch = useDispatch();
 	const isOpen = useSelector((state) => state.menu.isOpen);
-
-	const width = 330;
-	const height = useResponsiveImageHeight(width);
 
 	return (
 		<AnimatePresence>
@@ -43,16 +39,16 @@ const SideMenu = () => {
 							src="/images/yarik_logo.png"
 							width="151"
 							height="40"
-							className="m-auto"
+							className="m-auto select-none"
 							alt="yarik logo"
 						/>
 					</div>
 					<div>
 						<Image
 							src="/images/yarik_himself.png"
-							height="450"
-							width="330"
-							className="absolute bottom-0 left-[50%] transform translate-x-[-40%]"
+							height="400"
+							width="300"
+							className="absolute bottom-0 left-[50%] transform translate-x-[-40%] select-none"
 							alt="yarik himself"
 						/>
 					</div>

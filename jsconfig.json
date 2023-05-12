@@ -4,6 +4,7 @@
 		"paths": {
 			"@/components/*": ["src/app/components/*"],
 			"@/hooks/*": ["src/app/hooks/*"],
+			"@/data/*": ["src/app/data/*"],
 			"@/framer-variants/*": ["src/app/framer-variants/*"],
 			"@/store/*": ["src/app/store/*"],
 			"@/public/*": ["public/*"]
