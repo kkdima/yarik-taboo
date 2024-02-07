@@ -1,40 +1,29 @@
-'use client';
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleLoading } from '@/store/slices/menuSlice';
-
-const containerVariants = {
-	hidden: { opacity: 1 },
-	visible: {
-		opacity: 1,
-		transition: {
-			delayChildren: 0.3,
-			staggerChildren: 0.2,
-		},
-	},
-};
+import { useSelector, useDispatch } from "react-redux";
+import { toggleLoading } from "@/store/slices/menuSlice";
 
 const imageVariants = {
-	hidden: { opacity: 0, scale: 0.4, y: 20 },
-	visible: { opacity: 1, scale: 1, y: 0 },
+	hidden: { opacity: 0, scale: 0.8 },
+	visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
 };
 
 const ImagesSection = () => {
-	const dispatch = useDispatch();
-	const isLoading = useSelector((state) => state.menu.isLoading);
-
 	return (
-		<motion.div
-			className="relative mt-10 max-w-[500px] m-auto w-full h-[500px]"
-			variants={containerVariants}
-			initial="hidden"
-			animate="visible"
+		<div
+			className="h-full grid grid-cols-2 grid-rows-2 place-items-center items-start"
+			// className="relative mt-10 max-w-[500px] m-auto w-full h-[500px]"
+			// "hidden"
+			// animate="visible"
 		>
-			<motion.span key="1" variants={imageVariants}>
+			<motion.span
+				key="1"
+				alt="Decorative"
+				variants={imageVariants}
+				className="md:w-[170px] p-4" // Tailwind classes for sizing and padding
+			>
 				<Image
 					src="/images/character_main.png"
 					width="197"
@@ -46,8 +35,10 @@ const ImagesSection = () => {
 			</motion.span>
 			<motion.span
 				key="2"
+				alt="Decorative"
 				variants={imageVariants}
-				className="absolute top-[108px] transform rotate-[-35deg]"
+				className=" p-4" // Tailwind classes for sizing and padding
+				// className="absolute top-[108px] transform rotate-[-35deg]"
 			>
 				<Image
 					src="/images/lady_warrior.png"
@@ -59,8 +50,10 @@ const ImagesSection = () => {
 			</motion.span>
 			<motion.span
 				key="3"
+				alt="Decorative"
 				variants={imageVariants}
-				className="absolute top-[90px] -right-9"
+				className=" p-4" // Tailwind classes for sizing and padding
+				// className="absolute top-[90px] -right-9"
 			>
 				<Image
 					src="/images/cowboy_laying.png"
@@ -73,8 +66,11 @@ const ImagesSection = () => {
 			</motion.span>
 			<motion.span
 				key="4"
+				alt="Decorative"
 				variants={imageVariants}
-				className="absolute w-full top-[290px]"
+				whileHover={{ scale: 1.1 }} // Optional: animate on hover
+				className=" p-4" // Tailwind classes for sizing and padding
+				// className="absolute w-full top-[290px]"
 			>
 				<Image
 					src="/images/cowgirl.png"
@@ -84,7 +80,7 @@ const ImagesSection = () => {
 					alt="cowboy laying"
 				/>
 			</motion.span>
-		</motion.div>
+		</div>
 	);
 };
 

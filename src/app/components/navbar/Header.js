@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toggleMenu } from '@/store/slices/menuSlice';
-import Image from 'next/image';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { toggleMenu } from "@/store/slices/menuSlice";
+import Image from "next/image";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 
 const Header = () => {
 	const dispatch = useDispatch();
@@ -24,12 +25,7 @@ const Header = () => {
 				whileTap={{ scale: 0.9 }}
 				onClick={() => dispatch(toggleMenu())}
 			>
-				<Image
-					src="/images/humberger_menu.png"
-					width="35"
-					height="32"
-					alt="Menu"
-				/>
+				<Bars3Icon className="h-6 w-6" />
 			</motion.div>
 		</div>
 	);

@@ -1,11 +1,11 @@
-'use client';
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { menuVariants } from '@/framer-variants/variants';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { menuVariants } from "@/framer-variants/variants";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleMenu } from '@/store/slices/menuSlice';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleMenu } from "@/store/slices/menuSlice";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 
 const SideMenu = () => {
 	const dispatch = useDispatch();
@@ -27,30 +27,15 @@ const SideMenu = () => {
 							whileTap={{ scale: 0.9 }}
 							onClick={() => dispatch(toggleMenu())}
 						>
-							<Image src="/images/close.png" width="44" height="40" />
+							<XMarkIcon className="h-6 w-6" />
 						</motion.button>
 					</div>
-					<div className="font-semibold text-3xl text-center h-auto">
+					<div className="font-semibold text-3xl text-left h-auto px-10">
 						<h2 className="pb-5">Contact and Booking</h2>
 						<h2 className="pb-5">Service & Pricing</h2>
+						<h2 className="pb-5">Shop</h2>
 						<h2 className="pb-5">Portfolio</h2>
 						<h2 className="pb-5">About</h2>
-						<Image
-							src="/images/yarik_logo.png"
-							width="151"
-							height="40"
-							className="m-auto select-none"
-							alt="yarik logo"
-						/>
-					</div>
-					<div>
-						<Image
-							src="/images/yarik_himself.png"
-							height="400"
-							width="300"
-							className="absolute bottom-0 left-[50%] transform translate-x-[-40%] select-none"
-							alt="yarik himself"
-						/>
 					</div>
 				</motion.div>
 			)}
