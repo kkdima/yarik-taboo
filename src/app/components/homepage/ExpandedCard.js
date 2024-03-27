@@ -6,10 +6,11 @@ import {
 	MagnifyingGlassPlusIcon,
 	MagnifyingGlassMinusIcon,
 } from "@heroicons/react/24/outline";
-import { images } from "@/data/imagePath/images";
 
 const ModalImage = ({
 	src,
+	numberOfFiles,
+	folderName,
 	isSelected,
 	setIsSelected,
 	selectedCard,
@@ -18,6 +19,8 @@ const ModalImage = ({
 	const [isZoomed, setIsZoomed] = useState(false);
 	const [direction, setDirection] = useState(0);
 
+	console.log(numberOfFiles, folderName);
+
 	useEffect(() => {
 		if (isSelected) {
 			document.body.style.overflow = "hidden";
@@ -25,11 +28,11 @@ const ModalImage = ({
 				if (event.keyCode === 37) {
 					// left arrow
 					setDirection(-1);
-					setSelectedCard((selectedCard - 1 + images.length) % images.length);
+					setSelectedCard((selectedCard - 1 + numberOfFiles) % numberOfFiles);
 				} else if (event.keyCode === 39) {
 					// right arrow
 					setDirection(1);
-					setSelectedCard((selectedCard + 1) % images.length);
+					setSelectedCard((selectedCard + 1) % numberOfFiles);
 				}
 			};
 			window.addEventListener("keydown", handleKeyDown);
@@ -70,7 +73,7 @@ const ModalImage = ({
 						onClick={(e) => e.stopPropagation()}
 					>
 						<Image
-							src={`/images/flashes/${images[selectedCard]}`}
+							src={`/images/${folderName}/${selectedCard}`}
 							alt="Modal image"
 							width="1952"
 							height="2366"

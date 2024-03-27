@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const Card = ({ src, cardRef, onClick }) => {
+const Card = ({ src, cardRef, onClick, folderName }) => {
 	return (
 		<motion.div
 			layout
@@ -11,15 +11,14 @@ const Card = ({ src, cardRef, onClick }) => {
 			onClick={onClick}
 			whileTap={{ scale: 1.1 }}
 			// whileHover={{ scale: 1.1 }}
-			className="relative snap-center rounded-[8px] border cursor-grab active:cursor-grabbing border-primary-black w-full min-w-[75%] md:w-4/12 md:min-w-[33%] lg:w-2/12 lg:min-w-[16%] overflow-hidden m-4 select-none h-min"
+			className="relative snap-center rounded-[8px] aspect-[1/1] border cursor-grab active:cursor-grabbing border-primary-black overflow-hidden m-4 select-none w-full min-w-[25%]"
 		>
 			<Image
-				src={`/images/flashes/${src}`}
-				width="1952"
-				height="2366"
+				src={`/images/${folderName}/${src}.jpeg`}
+				fill
 				alt="flashes"
 				onDragStart={(e) => e.preventDefault()}
-				className="w-full h-auto max-h-screen"
+				className="object-contain w-full h-full"
 			/>
 		</motion.div>
 	);

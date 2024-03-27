@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import ImagesSection from "@/components/homepage/ImagesSection";
-import Carousel from "@/components/homepage/Carousel";
+// import Carousel from "@/components/homepage/Carousel";
+import Carousel from "@/components/reusable/Carousel";
+import CarouselNew from "@/components/reusable/CarouselNew";
 import ThreeDSection from "@/components/homepage/ThreeDSection";
 import Services from "@/components/homepage/Services";
 import AboutArtist from "@/components/homepage/AboutArtist";
@@ -16,7 +18,7 @@ export default function Home() {
 	const isLoading = useSelector((state) => state.menu.isLoading);
 
 	return (
-		<main className="pt-10 flex flex-col overflow-hidden">
+		<main className="pt-10 flex flex-col overflow-hidden max-w-[1024px] m-auto overflow-x-visible">
 			<div className="text-center px-5 ">
 				<p>
 					Tattoo Artist <br /> Based in Los Angeles
@@ -34,9 +36,9 @@ export default function Home() {
 					layout="responsive"
 					className="mx-auto max-w-[330px] mt-9 translate-x-[-20px]"
 					alt="Yarik"
-
 					// height={450}
 				/>
+
 				<div className="text-center px-5 ">
 					<motion.button
 						whileHover={{
@@ -51,8 +53,12 @@ export default function Home() {
 					</motion.button>
 				</div>
 			</div>
-			<Carousel />
-			{/* <Tattoos_Carousel /> */}
+			<h1 className="px-7 text-2xl font-semibold mt-12">Flashes</h1>
+			<CarouselNew />
+			{/* <Carousel numberOfFiles={45} folderName="flashes_2024_02" />
+			<h1 className="px-7 text-2xl font-semibold mt-12">Masks</h1>
+			<Carousel numberOfFiles={47} folderName="masks_2024_02" /> */}
+
 			<AboutArtist />
 		</main>
 	);
